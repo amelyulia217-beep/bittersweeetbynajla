@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ===== AREA EDIT UTAMA ===== -->
+<!-- Ganti judul website di bawah ini -->
+<title>Bitter Sweet by Najla</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf7;
+      color: #333;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #5a2a27;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 40px 60px;
+    }
+    h2 {
+      color: #5a2a27;
+      margin-bottom: 20px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 15px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .price {
+      color: #b45f06;
+      font-weight: bold;
+    }
+    .rating {
+      color: #f4b400;
+      margin: 5px 0;
+    }
+    .order-btn {
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 20px;
+      background-color: #5a2a27;
+      color: white;
+      cursor: pointer;
+    }
+    .order-btn:hover {
+      background-color: #7a3a36;
+    }
+    footer {
+      background-color: #5a2a27;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER (BISA DIEDIT) ===== -->
+<header>
+  <!-- Nama brand -->
+  <h1>Bitter Sweet by Najla</h1>
+  <!-- Tagline -->
+  <p>Premium Dessert with Sweet & Bitter Perfection</p>
+  <nav>
+    <a href="#menu">Menu</a>
+    <a href="#rating">Rating</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+</header>
+
+<!-- ===== MENU (TAMBAH / KURANGI SENDIRI) ===== -->
+<!-- ===== MENU (EDIT LANGSUNG DI BROWSER) ===== -->
+<section id="menu">
+  <h2>Menu Dessert</h2>
+  <div class="menu">
+
+    <!-- Contoh menu + gambar (ganti src dengan gambar kamu) -->
+    <div class="card">
+      <img src="images/belgium.jpg" alt="Belgium Dessert Box">
+      <h3>Belgium</h3>
+      <p class="price">Rp 75.000</p>
+      <div class="rating">★★★★★</div>
+      <button class="order-btn" onclick="addOrder('Belgium',75000)">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="images/tiramisu.jpg" alt="Tiramisu Dessert Box">
+      <h3>Tiramisu</h3>
+      <p class="price">Rp 65.000</p>
+      <div class="rating">★★★★★</div>
+      <button class="order-btn" onclick="addOrder('Tiramisu',65000)">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="images/banoffee.jpg" alt="Banoffee Pie">
+      <h3>Banoffee Pie</h3>
+      <p class="price">Rp 40.000</p>
+      <div class="rating">★★★★☆</div>
+      <button class="order-btn" onclick="addOrder('Banoffee Pie',40000)">Order</button>
+    </div>
+
+  </div>
+</section>
+
+<section id="rating">
+  <h2>Rating & Review</h2>
+  <p>⭐ 4.9 / 5 dari 20.000+ pelanggan</p>
+  <p>"Dessert terenak, coklatnya rich banget dan nggak enek!"</p>
+  <p>"Packaging cantik, rasanya premium 💖"</p>
+</section>
+
+<section id="order">
+  <h2>Order via Website</h2>
+  <p>Pesanan kamu akan tercatat langsung di website ini.</p>
+
+  <table id="orderTable">
+    <thead>
+      <tr><th>Menu</th><th>Harga</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h3>Total: Rp <span id="total">0</span></h3>
+
+  <button class="order-btn" onclick="checkout()">Checkout</button>
+</section>
+
+<!-- ===== KONTAK (GANTI SESUAI BISNIS KAMU) ===== -->
+<section id="contact" class="contact">
+  <h2>Kontak Kami</h2>
+  <p>📍 Jakarta, Indonesia</p>
+  <p>📞 WhatsApp: 08xxxxxxxxxx</p>
+  <p>📧 Email: bittersweet@najla.com</p>
+  <p>📸 Instagram: @bittersweetbynajla</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Bitter Sweet by Najla. All Rights Reserved.</p>
+</footer>
+
+<!-- ===== MODE EDIT LANGSUNG DI BROWSER ===== -->
+<script>
+  // Aktifkan edit teks
+  document.querySelectorAll('h1, h2, h3, p, .price').forEach(el => {
+    el.setAttribute('contenteditable', 'true');
+  });
+
+  // Simpan perubahan otomatis ke browser
+  const saveContent = () => {
+    localStorage.setItem('editableWebsite', document.body.innerHTML);
+  };
+
+  document.body.addEventListener('input', saveContent);
+
+  // Load data tersimpan
+  const saved = localStorage.getItem('editableWebsite');
+  if (saved) {
+    document.body.innerHTML = saved;
+  }
+</script>
+
+<!-- ===== CART & CHECKOUT SYSTEM ===== -->
+<script>
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function addOrder(name, price) {
+    cart.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+    alert(name + ' ditambahkan ke keranjang');
+  }
+
+  function renderCart() {
+    const tbody = document.querySelector('#orderTable tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+      total += item.price;
+      const row = `<tr><td>${item.name}</td><td>Rp ${item.price.toLocaleString('id-ID')}</td></tr>`;
+      tbody.innerHTML += row;
+    });
+    document.getElementById('total').innerText = total.toLocaleString('id-ID');
+  }
+
+  function checkout() {
+    document.getElementById('checkoutForm').style.display = 'block';
+  }
+
+  function submitOrder() {
+    const name = document.getElementById('custName').value;
+    const address = document.getElementById('custAddress').value;
+    if (!name || !address) {
+      alert('Lengkapi data pembeli');
+      return;
+    }
+    alert('Pesanan berhasil dibuat! (Simulasi toko online)');
+    cart = [];
+    localStorage.removeItem('cart');
+    renderCart();
+    document.getElementById('checkoutForm').style.display = 'none';
+  }
+
+  renderCart();
+</script>
+
+<section id="checkoutForm" style="display:none; padding:40px">
+  <h2>Checkout</h2>
+  <input id="custName" placeholder="Nama Lengkap" style="width:100%;padding:10px;margin:8px 0">
+  <textarea id="custAddress" placeholder="Alamat Lengkap" style="width:100%;padding:10px;margin:8px 0"></textarea>
+  <button class="order-btn" onclick="submitOrder()">Buat Pesanan</button>
+</section>
+
+</body>
+</html>
